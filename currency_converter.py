@@ -16,4 +16,13 @@ def get_currencies():
 
   return data
 
-printer.pprint(get_currencies())
+def print_currencies(currencies):
+  for name, currency in currencies:
+    name = currency['currencyName']
+    _id = currency['id']
+    symbol = currency.get("currencySymbol", "")
+    print(f"{_id} - {name} - {symbol}")
+
+data = get_currencies()
+
+print_currencies(data)
